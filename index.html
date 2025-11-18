@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boutros OIL</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header style="text-align: center; padding: 20px;">
+    <img src="images/logo.jpg" alt="Boutros OIL Logo" style="height: 80px; margin-bottom: 10px;" />
+    <h1 style="margin: 0;">Boutros OIL 🌿</h1>
+    <nav style="margin-top: 15px;">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <h2>Pure Lebanese Olive Oil</h2>
+    <p>From the heart of Koura to your kitchen—Boutros OIL delivers tradition in every drop.</p>
+
+ <video autoplay muted loop playsinline class="olive-video">
+  <source src="images/video1.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+  </section>
+
+  <section id="products">
+    <h3>Our Olive Oil Bottles</h3>
+    <div class="product-list">
+      <div class="product">
+        <img src="images/3L.png" alt="3L Olive Oil Bottle" />
+        <h4>3L Bottle</h4>
+        <p>Price: $25</p>
+        <label for="qty-3l">Quantity:</label>
+        <input type="number" id="qty-3l" min="0" value="0" />
+      </div>
+
+      <div class="product">
+        <img src="images/clean up the backgro.png" alt="10L Olive Oil Bottle" />
+        <h4>10L Bottle</h4>
+        <p>Price: $70</p>
+        <label for="qty-10l">Quantity:</label>
+        <input type="number" id="qty-10l" min="0" value="0" />
+      </div>
+
+      <div class="product">
+        <img src="images/20 l .png" alt="20L Olive Oil Bottle" />
+        <h4>20L Bottle</h4>
+        <p>Price: $135</p>
+        <label for="qty-20l">Quantity:</label>
+        <input type="number" id="qty-20l" min="0" value="0" />
+      </div>
+    </div>
+  </section>
+
+  <section id="other-products">
+    <h3>Other Olive Products</h3>
+    <div class="product-list">
+      <div class="product">
+        <img src="images/2kg .png" alt="Table Olives 2kg" />
+        <h4>Table Olives – 2kg</h4>
+        <p>Price: $14</p>
+        <label for="qty-olives1">Quantity:</label>
+        <input type="number" id="qty-olives1" min="0" value="0" />
+      </div>
+
+      <div class="product">
+        <img src="images/3kg.png" alt="Table Olives 3.5kg Offer" />
+        <h4>Table Olives – 3.5kg <span class="special-offer">(Special Offer)</span></h4>
+        <p>Price: $18</p>
+        <label for="qty-olives3">Quantity:</label>
+        <input type="number" id="qty-olives3" min="0" value="0" />
+      </div>
+
+      <div class="product">
+        <img src="images/Olive_Oil_Soap_Olives_in_background.jpeg" alt="Olive Oil Soap 1kg" />
+        <h4>Olive Oil Soap – 1kg</h4>
+        <p>Price: $5</p>
+        <label for="qty-soap">Quantity:</label>
+        <input type="number" id="qty-soap" min="0" value="0" />
+      </div>
+    </div>
+  </section>
+
+  <section id="order-button">
+    <button onclick="sendCombinedOrder()">Send Order via WhatsApp</button>
+  </section>
+
+  <section id="contact">
+    <h3>Need Help or Bulk Orders?</h3>
+    <p>Contact us on <a href="https://wa.me/96181766146" target="_blank">WhatsApp</a> to confirm your order and delivery.</p>
+    <p>📍 Location: Koura, North Lebanon</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Boutros OIL. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const products = [
+      { id: 'qty-3l', name: '3L Olive Oil', price: 25 },
+      { id: 'qty-10l', name: '10L Olive Oil', price: 70 },
+      { id: 'qty-20l', name: '20L Olive Oil', price: 135 },
+      { id: 'qty-olives1', name: '2kg Table Olives', price: 14 },
+      { id: 'qty-olives3', name: '3.5kg Table Olives Offer', price: 18 },
+      { id: 'qty-soap', name: '1kg Olive Oil Soap', price: 5 }
+    ];
+
+    function sendCombinedOrder() {
+      let message = "I want to order:\n";
+      let total = 0;
+      let hasItems = false;
+
+      products.forEach(product => {
+        const qty = parseInt(document.getElementById(product.id).value);
+        if (qty > 0) {
+          const subtotal = (qty * product.price).toFixed(2);
+          message += `- ${qty} x ${product.name} ($${subtotal})\n`;
+          total += parseFloat(subtotal);
+          hasItems = true;
+        }
+      });
+
+      if (!hasItems) {
+        alert("Please select at least one product.");
+        return;
+      }
+
+      message += `Total: $${total.toFixed(2)}`;
+      const whatsappLink = `https://wa.me/96181766146?text=${encodeURIComponent(message)}`;
+      window.open(whatsappLink, '_blank');
+    }
+  </script>
+</body>
+</html>
