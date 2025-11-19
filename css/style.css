@@ -4,7 +4,7 @@ body {
   margin: 0;
   background: url('../images/olive-grove.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: #3E2F1C; /* olive brown */
+  color: #3E2F1C;
   position: relative;
   z-index: 0;
 }
@@ -14,13 +14,13 @@ body::before {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(245, 245, 220, 0.85); /* beige overlay */
+  background: rgba(245, 245, 220, 0.85);
   z-index: -1;
 }
 
 /* Header */
 header {
-  background-color: #556B2F; /* dark olive green */
+  background-color: #556B2F;
   color: white;
   padding: 20px;
   text-align: center;
@@ -62,14 +62,15 @@ nav a:hover {
 
 /* Video Styling */
 .olive-video {
-  width: 100%;            /* Full width of container */
-  max-width: 800px;       /* Limit max width for large screens */
-  height: 180px;          /* Reduced height for a sleek look */
-  object-fit: cover;      /* Ensures video fills the box without distortion */
-  margin: 20px auto 0;    /* Top margin and center alignment */
+  width: 100%;
+  max-width: 800px;
+  height: 180px;
+  object-fit: cover;
+  margin: 20px auto 0;
   border-radius: 10px;
   display: block;
 }
+
 /* Product Sections */
 #products, #other-products {
   padding: 30px;
@@ -241,6 +242,11 @@ footer {
   h3 {
     font-size: 20px;
     margin-bottom: 20px;
+  }
+
+  .olive-video {
+    height: auto;
+    max-height: 200px;
   }
 
   .product-list {
