@@ -154,6 +154,7 @@ button {
   border-radius: 5px;
   font-weight: bold;
   font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -206,19 +207,6 @@ footer {
 
 /* Mobile styles */
 @media only screen and (max-width: 600px) {
-  body {
-    background-color: #fff;
-    color: #333;
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  header {
-    background-color: #3E2F1C;
-    padding: 15px;
-    font-size: 18px;
-  }
-
   nav a {
     display: block;
     margin: 8px 0;
@@ -269,8 +257,6 @@ footer {
 
   button, #order-button button {
     width: 100%;
-    font-size: 18px;
-    padding: 12px;
   }
 
   footer {
